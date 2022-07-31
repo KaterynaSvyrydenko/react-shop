@@ -7,7 +7,159 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+li {
+  list-style: none;
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+nav {
+  padding: 0 1rem;
+}
+
+main {
+  flex: 1 0 auto;
+}
+    
+
+.main-container {
+  min-height: calc(100vh - 70px - 64px);
+  padding: 1.5rem 0;;
+}
+
+.goods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.inputField {
+  position: relative;
+}
+
+.search-btn {
+  position: absolute;
+  top: 0;
+  right: .5rem
+}
+
+.page-footer {
+  padding-top: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .card-content {
+  flex-grow: 1;
+}
+
+.cart {
+  position: fixed;
+  padding: 1rem;
+  border-radius: 2px;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+
+@media (min-width: 767px) {
+  .cart {
+    top: 5rem;
+    bottom: unset;
+  }
+}
+
+.basket-list {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+  background-color: #fff;
+  width: 50rem;
+  max-width: 95%;
+
+  box-shadow: 2px 2px 10px 1px #000;
+
+  animation: show .5s ease-in-out;
+}
+
+.basket-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.basket-delete {
+  cursor: pointer;
+}
+
+
+@keyframes show {
+  from {
+    top: 70%;
+    opacity: 0;
+  } TO {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+.itemButton {
+  cursor: pointer;
+  padding:  4px 8px 5px;
+  background-color: #26a69a;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 10px;
+}
+
+.btn-checkout {
+  position: absolute;
+  bottom: 4px;
+  right: 15px;
+  background-color: #f06292
+}
+
+#toast-container {
+  top: 3rem !important;
+
+  animation:  fade-in .250s ease-in-out;
+}
+
+
+@media(max-width: 768px) {
+  #toast-container {
+    left: 0;
+    right: 0;
+
+    max-width: 320px;
+    margin: 0 auto; 
+  }
+  
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translate(2rem);
+  } to {
+    opacity: 1;
+    transform: translate(0rem);
+  }
 }
